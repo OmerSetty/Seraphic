@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Box from '@mui/material/Box';
+import { PanelContainer } from './components/PanelContainer';
+import { EventPanel } from './components/Event/Content/EventPanel';
+import { AgentPanel } from './components/Agent/Content/AgentPanel';
+
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './ThemeProviderConfig';
+import './css/App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', mt: '10vh', gap: 5 }}>
+        <PanelContainer>
+          <AgentPanel />
+        </PanelContainer>
+
+        <PanelContainer>
+          <EventPanel />
+        </PanelContainer>
+      </Box>
+    </ThemeProvider>
   );
 }
 
